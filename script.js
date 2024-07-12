@@ -6,8 +6,27 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
-const number = 10369;
-const numberToStr = number.toString();
-const splittedArr = numberToStr.split('');
+const inputValue = prompt('Enter some 5 digits number to separate digits by whitespases');
 
-console.log(splittedArr.join(' '));
+if (inputValue === null) {
+    alert("You clicked 'Cancel'");
+}
+else if (!inputValue.trim()) {
+
+    alert('You entered nothing (or spaces only)');
+}
+else if (isNaN(inputValue)) {
+    alert('You entered not a number');
+}
+else {
+    const absInt = Math.abs(parseInt(inputValue));
+    const absIntToStr = absInt.toString();
+
+    if (absIntToStr.length === 5) {
+        const splittedArr = absIntToStr.split('');
+        alert(splittedArr.join(' '));
+    }
+    else {
+        alert('The entered number does not contain 5 digits');
+    }
+}
